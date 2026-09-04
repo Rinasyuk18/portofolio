@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Media Sosial Detail</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container py-5 text-center">
+  <h2 id="title"></h2>
+  <p id="desc"></p>
+
+  <a id="link" href="#" target="_blank" class="btn btn-primary mt-3">Kunjungi Akun</a>
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const platform = params.get("platform");
+
+  const data = {
+    instagram: {
+      title: "Instagram",
+      desc: "Lihat aktivitas dan konten saya di Instagram.",
+      link: "https://www.instagram.com/jhia.wl/"
+    },
+    tiktok: {
+      title: "TikTok",
+      desc: "Tonton video dan konten saya di TikTok.",
+      link: "https://www.tiktok.com/@syrn1809"
+    },
+    linkedin: {
+      title: "LinkedIn",
+      desc: "Lihat profil profesional saya di LinkedIn.",
+      link: "https://www.linkedin.com/in/syuk-rina-bte-amirudin-0982b230b"
+    }
+  };
+
+  if (data[platform]) {
+    document.getElementById("title").innerText = data[platform].title;
+    document.getElementById("desc").innerText = data[platform].desc;
+    document.getElementById("link").href = data[platform].link;
+  } else {
+    document.getElementById("title").innerText = "Media Sosial Tidak Ditemukan";
+    document.getElementById("desc").innerText = "Silakan kembali ke halaman utama.";
+  }
+</script>
+
+</body>
+</html>
